@@ -34,8 +34,19 @@ During the development of this project, I learned:
 
 ---
 
-APP GALLERY:
+## APP GALLERY:
 <img width="1917" height="941" alt="image" src="https://github.com/user-attachments/assets/7f893ecd-a10e-4d9e-87f2-da85ba624961" />
 <img width="1915" height="906" alt="image" src="https://github.com/user-attachments/assets/2f07adaa-a6cd-4624-b0fa-cb9e6bf603a8" />
 <img width="1918" height="951" alt="image" src="https://github.com/user-attachments/assets/dc2f530e-b969-4d5c-adc3-f8800c9e173a" />
 
+## HOW TO USE:
+- Clone the project via git clone https://github.com/EmeterioF/laravel-todo-list.git
+- Create a db for this project in laragon's built in database or if you already have its ok just use it to the db config below
+- go to the env.example and copy it
+- rename it to .env
+- configure the database just swap the DB_DATABASE variable into the database you've created
+- now in laragon's terminal use these commands:
+- composer run dev
+- php artisan key:generate
+- php artisan migrate
+- now test the app by going to your localhost
