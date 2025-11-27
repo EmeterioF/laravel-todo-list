@@ -7,4 +7,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/task', [TaskController::class, 'insertTask']);
+Route::get('/task', [TaskController::class, 'index']);
