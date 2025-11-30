@@ -2,50 +2,53 @@
 @section('content')
 <section class="section flex flex-col items-center gap-20">
     
-    <form action="{{ route('task.update', $task->id) }}" method="POST" class="mt-20 p-6 bg-[#3C3D37] rounded">
+    <form action="{{ route('task.update', $task->id) }}" method="POST" class="mt-20 p-20 bg-[#1E2A2A] rounded-2xl">
         @csrf
         @method('PUT')
 
         <div class="grid grid-cols-2 gap-4 text-2xl">
 
-            <label for="title">TITLE:</label>
+            <label for="title" class="text-[#F0E8D0]">TITLE:</label>
             <div class="flex flex-col">
-                <input value="{{ old('title', $task->title) }}" class="border-white border-2 rounded" type="text" name="title" />
+                <input value="{{ old('title', $task->title) }}" 
+                       class="bg-[#2A3A3A] border-white border-2 rounded text-white placeholder-[#A0B0B0] p-2" 
+                       type="text" name="title" placeholder="Enter task title" />
                 @error('title')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
-            <label for="priority">PRIORITY:</label>
+            <label for="priority" class="text-[#F0E8D0]">PRIORITY:</label>
             <div class="flex flex-col">
-                <select name="priority" class="text-[#E9E3DF] rounded">
-                    <option class="text-[#181C14]" value="high" {{ old('priority', $task->priority) == 'high' ? 'selected' : '' }}>High</option>
-                    <option class="text-[#181C14]" value="medium" {{ old('priority', $task->priority) == 'medium' ? 'selected' : '' }}>Medium</option>
-                    <option class="text-[#181C14]" value="low" {{ old('priority', $task->priority) == 'low' ? 'selected' : '' }}>Low</option>
+                <select name="priority" class="bg-[#2A3A3A] text-[#F0E8D0] rounded p-2">
+                    <option class="bg-[#1E2A2A] text-[#F0E8D0]" value="high" {{ old('priority', $task->priority) == 'high' ? 'selected' : '' }}>High</option>
+                    <option class="bg-[#1E2A2A] text-[#F0E8D0]" value="medium" {{ old('priority', $task->priority) == 'medium' ? 'selected' : '' }}>Medium</option>
+                    <option class="bg-[#1E2A2A] text-[#F0E8D0]" value="low" {{ old('priority', $task->priority) == 'low' ? 'selected' : '' }}>Low</option>
                 </select>
                 @error('priority')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
-            <label for="due_date">DUE DATE:</label>
+            <label for="due_date" class="text-[#F0E8D0]">DUE DATE:</label>
             <div class="flex flex-col">
-                <input value="{{ old('due_date', $task->due_date) }}" class="border-white border-2 rounded" type="date" name="due_date" />
+                <input value="{{ old('due_date', $task->due_date) }}" 
+                       class="bg-[#2A3A3A] border-white border-2 rounded text-white p-2" 
+                       type="date" name="due_date" />
                 @error('due_date')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
-            <a href="{{ route('task.home')}}" class="p-4 bg-[#697565] text-center font-bold text-[#ECDFCC] rounded">BACK</a>
-            <button class="p-4 bg-[#697565] font-bold text-[#ECDFCC] rounded">UPDATE TASK</button>
+            <a href="{{ route('task.home')}}" 
+               class="p-4 bg-[#1E3A3A] hover:bg-[#152828] text-center font-bold text-[#F0E8D0] rounded transition">
+               BACK
+            </a>
+            <button class="p-4 bg-[#1E3A3A] hover:bg-[#152828] font-bold text-[#F0E8D0] rounded transition">
+                UPDATE TASK
+            </button>
         </div>
     </form>
-
-    <img 
-        class="w-64 h-64"
-        src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNm13bnBmYTl3OWh4Ynhma3pxcGE1cjIxdmUxZjJwcnV5dHR2NmtsYyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/H7o1rKmSUQbx18TwXv/giphy.gif" 
-        alt="oguricap">
 </section>
 
-<h1>EVERY TASK IS ONE STEP CLOSER TO YOUR GOAL</h1>
 @endsection
