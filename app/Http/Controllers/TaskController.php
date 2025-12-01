@@ -1,9 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-http://todolist.test/
 use Illuminate\Http\Request;
-use App\Models\Task; // import model 
+use App\Models\Task; 
 
 class TaskController extends Controller
 {   
@@ -12,12 +11,6 @@ class TaskController extends Controller
         $tasks = Task::all();
         return view('home', compact('tasks'));
     }
-
-    public function delete($id){
-        Task::findOrFail($id)->delete();
-        return redirect()->route('task.home');
-    }
-
 
     public function createTask(Request $request){
         $request->validate([
@@ -57,7 +50,12 @@ class TaskController extends Controller
 
         return redirect()->route('task.home');
     }
-   
+    
+    public function delete($id){
+        Task::findOrFail($id)->delete();
+        return redirect()->route('task.home');
+    }
+
     public function getDeletedRecords(){
         $memories = Task::onlyTrashed()->get();
         return view('memory', compact('memories'));
@@ -70,9 +68,9 @@ class TaskController extends Controller
     }
 
     
-    public function permaDelete(){
-        Task::withTrashed()->where('id',3)->forceDelete();
-        dd('successfuly deleted the record permanently');
+    public function permaDelete($id){
+        Task::withTrashed()->where('id',$id)->forceDelete();
+        return redirect()->route('task.home');
     }
     
 }

@@ -25,6 +25,11 @@
                             @csrf
                             <button type="submit" class="text-xl font-bold">RESTORE</button>
                         </form>
+                        <form action="{{ route('task.permaDelete', $memory->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="text-xl font-bold">DELETE</button>
+                        </form>
                     </div>
             @endforeach
         </div>
