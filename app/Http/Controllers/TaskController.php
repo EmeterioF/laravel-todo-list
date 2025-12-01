@@ -6,19 +6,7 @@ use App\Models\Task; // import model
 
 class TaskController extends Controller
 {   
-    #SI INDEX YUNG NAG LALAGAY NG DATA SA HOME
-    public function index(){
-        $tasks = Task::all();#GETS ALL THE DATA FROM THE table
-        return view('home', compact('tasks'));#PAGKATAPOS PUPUNTA SA HOME DALA DALA YUNG DATA NA FINETCH O GINET SA DB
-    }
-
-    #NAG DEDELETE NG TASK VIA ID 
-    public function delete($id){
-        Task::findOrFail($id)->delete();#DINEDELETE NIYA YUNG SPECIFIC TODO TASK 
-        return redirect()->route('task.home');#PAGKATAPOS PUPUNTA GAGAWIN NIYA ULIT YUNG index function na nasa taas para MA UPDATE YUNG HOME PAGE
-    }
-
-
+    #CREATE
     #ITO YUNG NAG HAHANDLE KAPAG GAGAWA NG BAGONG TASK
     public function createTask(Request $request){
         $request->validate([#VINAVALIDATE YUNG DATA NA PINASA FROM THE TASK CREATION PAGE
@@ -36,12 +24,21 @@ class TaskController extends Controller
         return redirect()->route('task.home');#THEN PUPUNTA ULIT SIYA NG INDEX PARA MA UPDATE YUNG HOME PAGE
     }
 
+    #READ
+    #SI INDEX YUNG NAG LALAGAY NG DATA SA HOME
+    public function index(){
+        $tasks = Task::all();#GETS ALL THE DATA FROM THE table
+        return view('home', compact('tasks'));#PAGKATAPOS PUPUNTA SA HOME DALA DALA YUNG DATA NA FINETCH O GINET SA DB
+    }
+
+    #EDIT
     #FUNCTION PARA PUMUNTA NG EDIT PAGE WITH THE ID
     public function edit($id) {
         $task = Task::findOrFail($id);#GINEGET NIYA YUNG SPECIFIC NA TODO TASK 
         return view('edit', compact('task'));#THEN PINAPASA NIYA YUNG ID NIYA SA EDIT PAGE
     }
 
+    #UPDATE
     #ITO NGAYON YUNG NAG U-UPDATE SA TODO TASK
     public function updateTask(Request $request, $id) {
         $request->validate([# VINAVALIDATE NIYA MUNA YUNG DATA FROM THE FORM AFTER MASUBMIT
@@ -60,6 +57,13 @@ class TaskController extends Controller
         return redirect()->route('task.home');#AFTER NG UPDATE PUPUNTA ULIT SIYA NG index FUNCTION PARA MA UPDATE YUNG HOME
     }
     
+    #DELETE
+    #NAG DEDELETE NG TASK VIA ID 
+    public function delete($id){
+        Task::findOrFail($id)->delete();#DINEDELETE NIYA YUNG SPECIFIC TODO TASK 
+        return redirect()->route('task.home');#PAGKATAPOS PUPUNTA GAGAWIN NIYA ULIT YUNG index function na nasa taas para MA UPDATE YUNG HOME PAGE
+    }
+
     #FUNCTION PARA MA GET YUNG MGA DELETED RECRODS TAPOS IPAPASA SA DELETED PAGE
     #YUNG Deleted PAGE IS page na nag didisplay ng mga na delete na records 
     public function getDeletedRecords(){

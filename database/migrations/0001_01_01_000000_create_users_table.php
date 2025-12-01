@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    # ANDITO YUNG SCHEMA OR YUNG MODEL NG DATABASE 
+    # ANDITO YUNG SCHEMA NG DATABASE 
     # SO KAPAG NAG MIGRATE KA AUTOMATIC NA GUMAGAWA NG TABLE <----
     public function up(): void
     {

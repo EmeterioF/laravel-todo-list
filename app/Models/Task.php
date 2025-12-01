@@ -9,7 +9,7 @@ class Task extends Model
     #SA APP MO LANG SIYA MADEDELETE
 
     protected $fillable = ['title', 'is_completed', 'priority', 'due_date', ];
-
+    
     # KINO KONVERT NIYA YUNG IS COMPLETED NA FIELD SA BOOLEAN AUTOMATICALLY KASE STRING YAN PAG FINETCH WITHOUT THIS
     protected $casts = [
         'is_completed'=> 'boolean',
