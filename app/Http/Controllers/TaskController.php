@@ -72,6 +72,11 @@ class TaskController extends Controller
         Task::withTrashed()->where('id',$id)->restore();
         return redirect()->route('task.home');
     }
-
+    
+    #PERMANENTLY DELETES THE RECORD FROM THE DB
+    public function permaDelete($id){
+        Task::withTrashed()->where('id',$id)->forceDelete();
+        return redirect()->route('task.memory');
+    }
     
 }

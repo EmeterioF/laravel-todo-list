@@ -23,6 +23,14 @@
                             RESTORE
                         </button>
                     </form>
+                    <form action="{{ route('task.permaDelete', $deleted->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" 
+                                class="text-xl font-bold text-[#F0E8D0] hover:text-white transition px-4">
+                            DELETE
+                        </button>
+                    </form>
                 </div>
             @endforeach
         </div>

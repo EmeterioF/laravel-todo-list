@@ -15,5 +15,6 @@ Route::get('/task/{id}/edit', [TaskController::class, 'edit'])->name('task.editV
 Route::post('/task', [TaskController::class, 'createTask'])->name('task.create');;
 Route::post('/task/{id}/restore', [TaskController::class, 'restoreDeletedRecord'])->name('task.restore');
 
+Route::delete('/task/{id}/permanent', [TaskController::class, 'permaDelete'])->name('task.permaDelete');
 Route::delete('/task/{id}', [TaskController::class, 'delete'])->name('task.delete');
 Route::put('/task/{id}', [TaskController::class, 'updateTask'])->name('task.update');
