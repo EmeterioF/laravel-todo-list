@@ -15,7 +15,7 @@
             <a class="p-4 bg-[#1E3A3A] rounded font-bold text-[#F0E8D0] hover:bg-[#152828] transition" 
                href="{{ route('go.task_creation') }}">ADD TO DO</a>      
             <a class="p-4 bg-[#1E3A3A] rounded font-bold text-[#F0E8D0] hover:bg-[#152828] transition" 
-               href="{{ route('task.memory') }}">MEMORY</a>
+               href="{{ route('task.memory') }}">DELETED</a>
         </div>
     </div>
     

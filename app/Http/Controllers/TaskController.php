@@ -60,14 +60,14 @@ class TaskController extends Controller
         return redirect()->route('task.home');#AFTER NG UPDATE PUPUNTA ULIT SIYA NG index FUNCTION PARA MA UPDATE YUNG HOME
     }
     
-    #FUNCTION PARA MA GET YUNG MGA DELETED RECRODS TAPOS IPAPASA SA MEMORY PAGE
-    #YUNG MEMORY PAGE IS page na nag didisplay ng mga na delete na records kaya memory tawag
+    #FUNCTION PARA MA GET YUNG MGA DELETED RECRODS TAPOS IPAPASA SA DELETED PAGE
+    #YUNG Deleted PAGE IS page na nag didisplay ng mga na delete na records 
     public function getDeletedRecords(){
-        $memories = Task::onlyTrashed()->get();
-        return view('memory', compact('memories'));
+        $deletes = Task::onlyTrashed()->get();
+        return view('deleted', compact('deletes'));
     }
 
-    #NI RERERSTORE NIYA YUNG DELETED RECORD AFTER I CLICK YUNG RESTORE SA memory PAGE
+    #NI RERERSTORE NIYA YUNG DELETED RECORD AFTER I CLICK YUNG RESTORE SA DELETED PAGE
     public function restoreDeletedRecord($id){
         Task::withTrashed()->where('id',$id)->restore();
         return redirect()->route('task.home');
