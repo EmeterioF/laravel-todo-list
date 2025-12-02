@@ -14,13 +14,13 @@
         </div>
         <div class="flex gap-6 mr-4 items-center" >
             <a class="p-4 bg-[#697565] rounded font-bold text-[#ECDFCC]  " href="{{ route('go.task_creation') }}">ADD TO DO</a>
-            <a class="p-4 bg-[#697565] rounded font-bold text-[#ECDFCC] " href="{{ route('task.memory') }}">MEMORY</a>
+            <a class="p-4 bg-[#697565] rounded font-bold text-[#ECDFCC] " href="{{ route('task.memory') }}">DELETED</a>
         </div>
     </div>
-    
+
     <main class="flex flex-col items-center justify-center gap-4 p-10">
         @yield('content')
     </main>
-    
+
 
 </html>

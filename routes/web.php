@@ -18,3 +18,5 @@ Route::post('/task/{id}/restore', [TaskController::class, 'restoreDeletedRecord'
 Route::delete('/task/{id}/permanent', [TaskController::class, 'permaDelete'])->name('task.permaDelete');
 Route::delete('/task/{id}', [TaskController::class, 'delete'])->name('task.delete');
 Route::put('/task/{id}', [TaskController::class, 'updateTask'])->name('task.update');
+
+Route::post('/task/{id}/toggle', [TaskController::class, 'toggleComplete'])->name('task.toggle');
